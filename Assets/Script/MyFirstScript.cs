@@ -1,50 +1,33 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class MyFirstScript : MonoBehaviour
 {
-    //public int myInt = 0;
-    //public bool myBool = false;
-    //public GameObject myGameObject = null;
-    public Vector3 moveDir = new Vector3(0, 0, 0);
-    //private Vector2 _input;
-    //private PlayerControls _controls;
-    public float speed = 10.0f;
-    public Rigidbody myRigibody;
-    private float moveX = 0;
-    private float moveZ = 0;
+    //public Text myText;
+    public Slider mySlider;
+    public float myFloat = 0.0f;
 
-
-    private void Start()
+    public void Start()
     {
-        
+        //myText.text = "Hello World";
+    }
+    public void Update()
+    {
+        mySlider.value = myFloat;
     }
 
-    private void Update()
+    public void OnButtonClick()
     {
-        DoMove();
-    }
-    private void FixedUpdate()
-    {
-        myRigibody.AddForce(moveDir * speed);
+        //Debug.Log("Botton Click");
     }
 
-    public void DoMove()
-    {
-        //Debug.Log("Horizontal" + Input.GetAxis("Horizontal"));
-        //Debug.Log("Vertical" + Input.GetAxis("Vertical"));
-        moveX = Input.GetAxis("Horizontal");
-        moveZ = Input.GetAxis("Vertical");
-        
-
-        //新版
-        //Vector2 input = Keyboard.current.wasdKey.ReadValue();
-
-        moveDir = new Vector3(moveX, 0, moveZ).normalized;//.normalized是限制移动速度上限用的
-        
-    }
 }
+
+
+
+
 
 //打印句
 //Debug.Log("Hello World");
@@ -108,3 +91,109 @@ public class MyFirstScript : MonoBehaviour
 
 //    myRigibody.AddForce(moveDir * speed);
 //}
+
+
+
+
+//碰撞器类函数代码
+//private void OnCollisionEnter(Collision collision)//碰撞到物体时触发函数
+//{
+//    Debug.Log("碰到了");
+//}
+//private void OnCollisionStay(Collision collision)
+//{
+//    Debug.Log("停留了");
+//}
+//private void OnCollisionExit(Collision collision)
+//{
+//    Debug.Log("离开了");
+//}
+
+
+
+//触发器类函数代码
+//private void OnTriggerEnter(Collider other)
+//{
+//    Debug.Log("进入触发器");
+//}
+//private void OnTriggerStay(Collider other)
+//{
+//    Debug.Log("持续触发");
+//}
+//private void OnTriggerExit(Collider other)
+//{
+//    Debug.Log("离开触发器");
+//}
+
+
+//物体名字
+//collision.gameObject.name;
+//物体标签
+//collision.gameObject.tag
+
+
+
+//小球移动代码
+////public int myInt = 0;
+//    //public bool myBool = false;
+//    //public GameObject myGameObject = null;
+//    public Vector3 moveDir = new Vector3(0, 0, 0);
+//    //private Vector2 _input;
+//    //private PlayerControls _controls;
+//    public float speed = 10.0f;
+//    public Rigidbody myRigibody;
+//    private float moveX = 0;
+//    private float moveZ = 0;
+
+
+//    private void Start()    //unity自动执行的函数为蓝色
+//{
+//    moveDir = new Vector3(0, 0, 0);
+//}
+
+//private void Update()
+//{
+//    DoMove();
+//}
+//private void FixedUpdate()  //运动类函数方法
+//{
+//    myRigibody.AddForce(moveDir * speed);
+//}
+
+
+//private void OnCollisionEnter(Collision collision)//碰撞到物体时触发函数
+//{
+//    if (collision.gameObject.tag == "Food")
+//    {
+//        Debug.Log(collision.gameObject.tag);
+//    }
+//}
+
+//private void OnTriggerEnter(Collider other)
+//{
+//    if (other.gameObject.tag == "Food2")
+//    {
+//        Debug.Log(other.gameObject.tag);
+//    }
+//    //Debug.Log("进入触发器");
+//}
+
+//public void DoMove()
+//{
+//    //Debug.Log("Horizontal" + Input.GetAxis("Horizontal"));
+//    //Debug.Log("Vertical" + Input.GetAxis("Vertical"));
+//    moveX = Input.GetAxis("Horizontal");
+//    moveZ = Input.GetAxis("Vertical");
+
+
+//    //新版
+//    //Vector2 input = Keyboard.current.wasdKey.ReadValue();
+
+//    moveDir = new Vector3(moveX, 0, moveZ).normalized;//.normalized是限制移动速度上限用的
+
+//}
+
+
+
+//设置文本
+//myText.text = "Hello World";
